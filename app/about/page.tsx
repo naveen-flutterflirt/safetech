@@ -1,5 +1,11 @@
+import { Metadata } from "next";
 import { ShieldCheck, Target, Users, BookOpen, Camera, Flame, Sun, Droplets, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Learn about Safetech's mission to provide comprehensive security, safety, and energy solutions for homes and businesses.",
+};
 
 export default function AboutPage() {
   return (

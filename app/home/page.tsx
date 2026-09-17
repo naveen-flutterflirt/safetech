@@ -1,4 +1,9 @@
-"use client";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home & Residential Solutions",
+  description: "Protect your family and improve home security with Safetech's residential CCTV, fire safety, and solar energy solutions.",
+};
 
 import Link from "next/link";
 import { ArrowRight, Shield, Zap, Droplets, Camera, CheckCircle2, Home } from "lucide-react";
