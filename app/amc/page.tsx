@@ -74,22 +74,12 @@ export default function AMCRequestPage() {
       console.log("Server Response Data:", responseData);
 
       if (response.status === 201 || response.ok) {
-        toast.success(
-          responseData?.message || 
-          (responseData ? JSON.stringify(responseData) : "AMC Request submitted successfully. We will contact you soon."),
-          { duration: 5000 }
-        );
+        toast.success("AMC Request submitted successfully. We will contact you soon.");
         reset();
       } else if (response.status === 422) {
-        toast.error(
-          responseData?.detail ? JSON.stringify(responseData.detail) : "Please check your inputs and try again.",
-          { duration: 5000 }
-        );
+        toast.error("Please check your inputs and try again.");
       } else {
-        toast.error(
-          responseData?.detail || (responseData ? JSON.stringify(responseData) : "Failed to submit AMC request. Please try again later."),
-          { duration: 5000 }
-        );
+        toast.error(responseData?.detail || "Failed to submit AMC request. Please try again later.");
       }
     } catch (error) {
       console.error("Network error:", error);

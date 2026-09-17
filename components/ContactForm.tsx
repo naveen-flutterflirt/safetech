@@ -66,22 +66,12 @@ export default function ContactForm() {
       console.log("Server Response Data:", responseData); // Added log for debugging
 
       if (response.status === 201 || response.ok) {
-        toast.success(
-          responseData?.message || 
-          (responseData ? JSON.stringify(responseData) : "Thank you for contacting us. We will get back to you shortly."),
-          { duration: 5000 }
-        );
+        toast.success("Thank you for contacting us. We will get back to you shortly.");
         reset();
       } else if (response.status === 422) {
-        toast.error(
-          responseData?.detail ? JSON.stringify(responseData.detail) : "Please check your inputs and try again.",
-          { duration: 5000 }
-        );
+        toast.error("Please check your inputs and try again.");
       } else {
-        toast.error(
-          responseData?.detail || (responseData ? JSON.stringify(responseData) : "Something went wrong on our end. Please try again later."),
-          { duration: 5000 }
-        );
+        toast.error(responseData?.detail || "Something went wrong on our end. Please try again later.");
       }
     } catch (error) {
       console.error("Form submission error:", error);
