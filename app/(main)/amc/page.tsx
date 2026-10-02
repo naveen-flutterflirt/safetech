@@ -90,70 +90,70 @@ export default function AMCRequestPage() {
   };
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen text-white font-sans overflow-hidden pt-32 pb-24">
+    <div className="bg-[#0a0a0a] min-h-screen text-white font-sans overflow-hidden pt-24 lg:pt-32 pb-16 lg:pb-24">
       {/* Background accents */}
       <div className="fixed inset-0 z-0 pointer-events-none flex justify-center opacity-30">
         <div className="w-[800px] h-[800px] bg-[#3b82f6]/5 rounded-full blur-[120px] -translate-y-1/2"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 border border-white/10 mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+          <div className="inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/5 border border-white/10 mb-6">
             <Wrench size={32} className="text-[#3b82f6]" />
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-4 lg:mb-6 tracking-tight">
             AMC Service <span className="text-[#3b82f6]">Request</span>
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-base lg:text-lg px-4">
             Already have an Annual Maintenance Contract? Log your service request below and our technicians will be dispatched to resolve your issue.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 max-w-6xl mx-auto">
 
           {/* Form */}
-          <div className="bg-[#111] border border-white/10 p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+          <div className="bg-[#111] border border-white/10 p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden order-2 lg:order-1">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#3b82f6] to-blue-400"></div>
 
-            <h3 className="text-2xl font-bold text-white mb-8">Log a Maintenance Request</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 lg:mb-8">Log a Maintenance Request</h3>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 sm:gap-5">
               {/* Personal Info */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-gray-400">Full Name</label>
-                  <input type="text" placeholder="John Doe" {...register("name")} className={`bg-black border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors`} />
+                  <input type="text" placeholder="John Doe" {...register("name")} className={`bg-black border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`} />
                   {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-gray-400">Phone Number</label>
-                  <input type="tel" placeholder="+91 98765 43210" {...register("phone")} className={`bg-black border ${errors.phone ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors`} />
+                  <input type="tel" placeholder="+91 98765 43210" {...register("phone")} className={`bg-black border ${errors.phone ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`} />
                   {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
                 </div>
               </div>
 
               {/* Account Info */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-gray-400">Email Address</label>
-                  <input type="email" placeholder="john@example.com" {...register("email")} className={`bg-black border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors`} />
+                  <input type="email" placeholder="john@example.com" {...register("email")} className={`bg-black border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`} />
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-gray-400">Contract Number (Optional)</label>
-                  <input type="text" placeholder="AMC-XXXX-YYYY" {...register("contract_number")} className={`bg-black border ${errors.contract_number ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors`} />
+                  <input type="text" placeholder="AMC-XXXX-YYYY" {...register("contract_number")} className={`bg-black border ${errors.contract_number ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`} />
                   {errors.contract_number && <p className="text-red-500 text-xs mt-1">{errors.contract_number.message}</p>}
                 </div>
               </div>
 
               {/* Service & Priority */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-gray-400">System Type</label>
                   <div className="relative">
-                    <select defaultValue="" {...register("system_type")} className={`w-full bg-black border ${errors.system_type ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors appearance-none`}>
+                    <select defaultValue="" {...register("system_type")} className={`w-full bg-black border ${errors.system_type ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors appearance-none [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`}>
                       <option value="" disabled>Select System</option>
                       <option value="cctv">CCTV & Surveillance</option>
                       <option value="fire">Fire Safety System</option>
@@ -171,7 +171,7 @@ export default function AMCRequestPage() {
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-gray-400">Issue Priority</label>
                   <div className="relative">
-                    <select defaultValue="medium" {...register("priority")} className={`w-full bg-black border ${errors.priority ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors appearance-none`}>
+                    <select defaultValue="medium" {...register("priority")} className={`w-full bg-black border ${errors.priority ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors appearance-none [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`}>
                       <option value="low">Low (Routine Maintenance)</option>
                       <option value="medium">Medium (Partial Failure)</option>
                       <option value="high">High (Complete System Failure)</option>
@@ -187,11 +187,11 @@ export default function AMCRequestPage() {
               {/* Issue Description */}
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-semibold text-gray-400">Issue Description</label>
-                <textarea placeholder="Please describe the issue you are facing..." rows={4} {...register("issue_description")} className={`bg-black border ${errors.issue_description ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors resize-none`}></textarea>
+                <textarea placeholder="Please describe the issue you are facing..." rows={4} {...register("issue_description")} className={`bg-black border ${errors.issue_description ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors resize-none [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`}></textarea>
                 {errors.issue_description && <p className="text-red-500 text-xs mt-1">{errors.issue_description.message}</p>}
               </div>
 
-              <button type="submit" disabled={isSubmitting} className="bg-[#3b82f6] text-white font-bold text-lg rounded-xl py-4 mt-4 hover:bg-blue-600 transition-colors flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+              <button type="submit" disabled={isSubmitting} className="bg-[#3b82f6] text-white font-bold text-base sm:text-lg rounded-xl py-3.5 sm:py-4 mt-2 sm:mt-4 hover:bg-blue-600 transition-colors flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
                 {isSubmitting ? (
                   <>
                     <Loader2 className="animate-spin" size={20} /> Submitting...
@@ -206,15 +206,15 @@ export default function AMCRequestPage() {
           </div>
 
           {/* AMC Benefits & Info */}
-          <div className="flex flex-col justify-center gap-10 lg:pl-10">
+          <div className="flex flex-col justify-center gap-8 lg:gap-10 lg:pl-10 order-1 lg:order-2">
 
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">Why Maintain an AMC?</h3>
-              <p className="text-gray-400 mb-8 leading-relaxed">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Why Maintain an AMC?</h3>
+              <p className="text-gray-400 mb-6 lg:mb-8 leading-relaxed text-sm sm:text-base">
                 Regular maintenance is crucial for life-safety and security systems. Our Annual Maintenance Contracts ensure your equipment works flawlessly when you need it most.
               </p>
 
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-5 sm:gap-6">
                 <div className="flex gap-4">
                   <div className="w-12 h-12 rounded-xl bg-[#3b82f6]/10 flex items-center justify-center shrink-0 border border-[#3b82f6]/20">
                     <Wrench size={24} className="text-[#3b82f6]" />
@@ -237,16 +237,16 @@ export default function AMCRequestPage() {
               </div>
             </div>
 
-            <div className="bg-black/50 border border-white/5 rounded-2xl p-6">
+            <div className="bg-black/50 border border-white/5 rounded-2xl p-5 sm:p-6">
               <h4 className="font-bold text-white mb-4">Need immediate emergency support?</h4>
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3 text-gray-300">
-                  <Phone size={18} className="text-[#3b82f6]" />
-                  <span>+91 98765 43210 (24/7 Hotline)</span>
+                  <Phone size={18} className="text-[#3b82f6] shrink-0" />
+                  <span className="text-sm sm:text-base">+91 98765 43210 (24/7 Hotline)</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-300">
-                  <Mail size={18} className="text-[#3b82f6]" />
-                  <span>support@safetech.com</span>
+                  <Mail size={18} className="text-[#3b82f6] shrink-0" />
+                  <span className="text-sm sm:text-base break-all">support@safetech.com</span>
                 </div>
               </div>
             </div>

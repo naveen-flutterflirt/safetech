@@ -82,33 +82,33 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="quote-form" className="bg-[#050505] py-24 relative z-10 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="quote-form" className="bg-[#050505] py-16 lg:py-24 relative z-10 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+        <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 lg:mb-6 tracking-tight">
             Let&apos;s Secure & Power Your Business
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-base lg:text-lg px-4">
             Tell us what you need. Our team will assess your requirements and recommend the right solution.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 max-w-5xl mx-auto">
 
           {/* Form */}
-          <div className="bg-[#111] border border-white/10 p-8 rounded-3xl">
-            <h3 className="text-2xl font-bold text-white mb-6">Get a Free Consultation</h3>
+          <div className="bg-[#111] border border-white/10 p-6 sm:p-8 rounded-3xl order-2 lg:order-1">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">Get a Free Consultation</h3>
 
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <input
                     type="text"
                     placeholder="Name"
                     {...register("name")}
-                    className={`w-full bg-black border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30`}
+                    className={`w-full bg-black border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`}
                   />
                   {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                 </div>
@@ -117,7 +117,7 @@ export default function ContactForm() {
                     type="tel"
                     placeholder="Phone"
                     {...register("phone")}
-                    className={`w-full bg-black border ${errors.phone ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30`}
+                    className={`w-full bg-black border ${errors.phone ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`}
                   />
                   {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
                 </div>
@@ -128,7 +128,7 @@ export default function ContactForm() {
                   type="email"
                   placeholder="Email"
                   {...register("email")}
-                  className={`w-full bg-black border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30`}
+                  className={`w-full bg-black border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`}
                 />
                 {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
               </div>
@@ -138,7 +138,7 @@ export default function ContactForm() {
                   <select
                     {...register("service")}
                     defaultValue=""
-                    className={`w-full bg-black border ${errors.service ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 appearance-none`}
+                    className={`w-full bg-black border ${errors.service ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 appearance-none [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`}
                   >
                     <option value="" disabled>Select a Service</option>
                     <option value="cctv">CCTV & Security</option>
@@ -159,7 +159,7 @@ export default function ContactForm() {
                   placeholder="Tell us about your requirement..."
                   rows={4}
                   {...register("message")}
-                  className={`w-full bg-black border ${errors.message ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 resize-none`}
+                  className={`w-full bg-black border ${errors.message ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 resize-none [&:-webkit-autofill]:shadow-[0_0_0px_1000px_black_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]`}
                 ></textarea>
                 {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
               </div>
@@ -167,7 +167,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-white text-black font-bold text-lg rounded-xl py-4 mt-2 hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="bg-white text-black font-bold text-base sm:text-lg rounded-xl py-3.5 sm:py-4 mt-2 hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
@@ -181,35 +181,35 @@ export default function ContactForm() {
           </div>
 
           {/* Contact Info */}
-          <div className="flex flex-col justify-center gap-8 lg:pl-10">
+          <div className="flex flex-col justify-center gap-8 lg:pl-10 order-1 lg:order-2">
             <div>
-              <h4 className="text-xl font-bold text-white mb-6">Contact Information</h4>
-              <div className="flex flex-col gap-6">
+              <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">Contact Information</h4>
+              <div className="flex flex-col gap-5 sm:gap-6">
                 <div className="flex items-start gap-4 text-gray-300">
-                  <MapPin className="text-white mt-1" />
+                  <MapPin className="text-white mt-1 shrink-0" />
                   <div>
                     <p className="font-bold text-white">Office Address</p>
                     <p className="text-sm">5FVC+X96, Bagmugaliya,<br />Bhopal, Madhya Pradesh 462043</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 text-gray-300">
-                  <Phone className="text-white" />
+                  <Phone className="text-white shrink-0" />
                   <div>
                     <p className="font-bold text-white">Phone</p>
                     <p className="text-sm">8926104326</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 text-gray-300">
-                  <Mail className="text-white" />
+                  <Mail className="text-white shrink-0" />
                   <div>
                     <p className="font-bold text-white">Email</p>
-                    <p className="text-sm">info@flutterflirt.com</p>
+                    <p className="text-sm break-all">info@flutterflirt.com</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="h-64 w-full bg-[#111] rounded-2xl border border-white/10 overflow-hidden">
+            <div className="h-56 sm:h-64 w-full bg-[#111] rounded-2xl border border-white/10 overflow-hidden">
               <iframe
                 src="https://maps.google.com/maps?q=5FVC%2BX96%2C%20Bagmugaliya%2C%20Bhopal%2C%20Madhya%20Pradesh%20462043&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
