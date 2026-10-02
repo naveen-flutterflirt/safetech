@@ -46,23 +46,23 @@ export default function AMCRequestPage() {
     setIsSubmitting(true);
     console.log("Submitting AMC request with data:", data);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
-      const apiKey = process.env.NEXT_PUBLIC_API_KEY || "sk_live_testkey123"; 
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
       const response = await fetch(`${apiUrl}/api/v1/queries/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${apiKey}` 
+          "Authorization": `Bearer ${apiKey}`
         },
         body: JSON.stringify({
-          query_type: "amc_request", 
+          query_type: "amc_request",
           name: data.name,
           email: data.email,
           phone: data.phone,
-          service: data.system_type, 
+          service: data.system_type,
           message: data.issue_description,
-          priority: data.priority, 
+          priority: data.priority,
           metadata_json: {
             contract_number: data.contract_number || null,
           }
@@ -97,7 +97,7 @@ export default function AMCRequestPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 border border-white/10 mb-6">
@@ -112,13 +112,13 @@ export default function AMCRequestPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          
+
           {/* Form */}
           <div className="bg-[#111] border border-white/10 p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#3b82f6] to-blue-400"></div>
-            
+
             <h3 className="text-2xl font-bold text-white mb-8">Log a Maintenance Request</h3>
-            
+
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
               {/* Personal Info */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -147,7 +147,7 @@ export default function AMCRequestPage() {
                   {errors.contract_number && <p className="text-red-500 text-xs mt-1">{errors.contract_number.message}</p>}
                 </div>
               </div>
-              
+
               {/* Service & Priority */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-2">
@@ -167,7 +167,7 @@ export default function AMCRequestPage() {
                   </div>
                   {errors.system_type && <p className="text-red-500 text-xs mt-1">{errors.system_type.message}</p>}
                 </div>
-                
+
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-gray-400">Issue Priority</label>
                   <div className="relative">
@@ -190,7 +190,7 @@ export default function AMCRequestPage() {
                 <textarea placeholder="Please describe the issue you are facing..." rows={4} {...register("issue_description")} className={`bg-black border ${errors.issue_description ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#3b82f6]/50 transition-colors resize-none`}></textarea>
                 {errors.issue_description && <p className="text-red-500 text-xs mt-1">{errors.issue_description.message}</p>}
               </div>
-              
+
               <button type="submit" disabled={isSubmitting} className="bg-[#3b82f6] text-white font-bold text-lg rounded-xl py-4 mt-4 hover:bg-blue-600 transition-colors flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
                 {isSubmitting ? (
                   <>
@@ -207,13 +207,13 @@ export default function AMCRequestPage() {
 
           {/* AMC Benefits & Info */}
           <div className="flex flex-col justify-center gap-10 lg:pl-10">
-            
+
             <div>
               <h3 className="text-2xl font-bold text-white mb-4">Why Maintain an AMC?</h3>
               <p className="text-gray-400 mb-8 leading-relaxed">
                 Regular maintenance is crucial for life-safety and security systems. Our Annual Maintenance Contracts ensure your equipment works flawlessly when you need it most.
               </p>
-              
+
               <div className="flex flex-col gap-6">
                 <div className="flex gap-4">
                   <div className="w-12 h-12 rounded-xl bg-[#3b82f6]/10 flex items-center justify-center shrink-0 border border-[#3b82f6]/20">
@@ -224,7 +224,7 @@ export default function AMCRequestPage() {
                     <p className="text-sm text-gray-400">Regular checkups identify and fix potential issues before they cause system failures.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex gap-4">
                   <div className="w-12 h-12 rounded-xl bg-[#3b82f6]/10 flex items-center justify-center shrink-0 border border-[#3b82f6]/20">
                     <ShieldCheck size={24} className="text-[#3b82f6]" />

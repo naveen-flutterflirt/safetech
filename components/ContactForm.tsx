@@ -41,8 +41,8 @@ export default function ContactForm() {
     setIsSubmitting(true);
     console.log("Submitting form with data:", data); // Added log for debugging
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
-      const apiKey = process.env.NEXT_PUBLIC_API_KEY || "sk_live_testkey123";
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
       const response = await fetch(`${apiUrl}/api/v1/queries/`, {
         method: "POST",
