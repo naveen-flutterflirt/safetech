@@ -42,20 +42,17 @@ export const metadata: Metadata = {
   },
 };
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
 import { Toaster } from "react-hot-toast";
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-[#0a0a0a] text-white">
-        <Navbar />
         {children}
-        <Footer />
         <Toaster position="top-right" toastOptions={{ className: 'bg-[#111] text-white border border-white/10' }} />
       </body>
     </html>
